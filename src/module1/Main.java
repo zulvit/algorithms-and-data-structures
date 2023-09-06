@@ -1,7 +1,5 @@
 package module1;
 
-import module1.MyLinkedList;
-
 public class Main {
     public static void main(String[] args) {
         MyLinkedList<Integer> list = new MyLinkedList<>();
