@@ -13,6 +13,9 @@ public class MyArrayStack<T> {
     }
 
     public void push(T element) {
+        if (element == null) {
+            throw new NullPointerException("Element is empty");
+        }
         if (size >= elements.length) {
             ensureCapacity();
         } else {
@@ -28,6 +31,25 @@ public class MyArrayStack<T> {
             elements[size] = null;
             return result;
         }
+    }
+
+    public int search(T element) {
+        if (element == null) {
+            throw new NullPointerException("Search element is null");
+        }
+        for (int i = 0; i < size; i++) {
+            if (element.equals(elements[i])) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public T peek() throws Exception {
+        if (size <= 0) {
+            throw new Exception("Stack is empty");
+        }
+        return elements[size];
     }
 
     public int getSize() {
