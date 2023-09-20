@@ -1,4 +1,4 @@
-package module1;
+package custom_linked_list;
 
 public class MyLinkedList<T> {
     private Node<T> head;
@@ -95,5 +95,37 @@ public class MyLinkedList<T> {
             current = current.next;
         }
         System.out.println();
+    }
+
+    public boolean remove(T data) {
+        Node<T> current = head;
+        while (current != null) {
+            if (current.data.equals(data)) {
+                if (current.prev == null) {
+                    return removeFirst() != null;
+                } else if (current.next == null) {
+                    return removeLast() != null;
+                } else {
+                    current.prev.next = current.next;
+                    current.next.prev = current.prev;
+                    size--;
+                    return true;
+                }
+            }
+            current = current.next;
+        }
+        return false;
+    }
+
+    public boolean edit(T oldData, T newData) {
+        Node<T> current = head;
+        while (current != null) {
+            if (current.data.equals(oldData)) {
+                current.data = newData;
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
     }
 }
