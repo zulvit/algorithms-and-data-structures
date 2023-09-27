@@ -17,7 +17,7 @@
 
 ### Инициализация
 
-```java
+```
 MyLinkedList<T> list = new MyLinkedList<>();
 ```
 
@@ -59,7 +59,7 @@ MyLinkedList<T> list = new MyLinkedList<>();
 
 ## Пример использования
 
-```java
+```
 MyLinkedList<Integer> list = new MyLinkedList<>();
 list.addFirst(1);
 list.addLast(2);

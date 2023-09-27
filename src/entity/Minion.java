@@ -1,7 +1,11 @@
 package entity;
 
-public record Minion(String name, String color, int age, float height, float weight) {
+import java.util.Comparator;
+
+public record Minion(String name, String color, int age, float height, float weight)
+        implements Comparable<Minion> {
     public final static String YELLOW = "YELLOW";
+
 
     @Override
     public String toString() {
@@ -13,4 +17,11 @@ public record Minion(String name, String color, int age, float height, float wei
                 ", weight=" + weight +
                 '}';
     }
+
+    @Override
+    public int compareTo(Minion o) {
+        return this.name.compareTo(o.name);
+    }
+
+    public static final Comparator<Minion> AGE_COMPARATOR = Comparator.comparingInt(m -> m.age);
 }

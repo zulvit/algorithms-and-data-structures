@@ -2,7 +2,7 @@ package custom_stack;
 
 import java.util.Arrays;
 
-public class MyArrayStack<T> {
+public class MyArrayStack<T>{
     private T[] elements;
     private int size;
     private final static int DEFAULT_CAPACITY = 10;

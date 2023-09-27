@@ -1,9 +1,32 @@
 package custom_linked_list;
 
-public class MyLinkedList<T> {
+import java.util.Iterator;
+
+public class MyLinkedList<T> implements Iterable<T> {
     private Node<T> head;
     private Node<T> tail;
     private int size;
+
+    @Override
+    public Iterator<T> iterator() {
+        return new MyListIterator();
+    }
+
+    private class MyListIterator implements Iterator<T> {
+        private Node<T> current = head;
+
+        @Override
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        @Override
+        public T next() {
+            T data = current.data;
+            current = current.next;
+            return data;
+        }
+    }
 
     private static class Node<T> {
         T data;

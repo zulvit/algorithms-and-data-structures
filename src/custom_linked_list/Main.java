@@ -26,5 +26,12 @@ public class Main {
 
         System.out.println("Лист после изменений:");
         list.printList();
+
+        for (Minion m : list) {
+            System.out.println(m);
+        }
+
+        int compare = Minion.AGE_COMPARATOR.compare(minion1, minion2);
+        System.out.println("compare: " + compare);
     }
 }
