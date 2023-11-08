@@ -1,6 +1,10 @@
 package custom_linked_list;
 
+import custom_stack.MyArrayStack;
 import entity.Minion;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -33,5 +37,27 @@ public class Main {
 
         int compare = Minion.AGE_COMPARATOR.compare(minion1, minion2);
         System.out.println("compare: " + compare);
+
+        MyArrayStack<Minion> minionMyArrayStack = new MyArrayStack<>();
+        minionMyArrayStack.push(minion);
+        minionMyArrayStack.push(minion1);
+        minionMyArrayStack.push(minion2);
+        minionMyArrayStack.push(minion3);
+        try {
+            minionMyArrayStack.pop();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println(minionMyArrayStack.search(minion2));
+        minionMyArrayStack.print();
+
+        List<Minion> list1 = new ArrayList<>();
+        list1.add(minion);
+        list1.add(minion1);
+        list1.add(minion2);
+        list1.add(minion3);
+        list1.add(minion4);
+        list1.sort(Minion::compareTo);
+        System.out.println(list1);
     }
 }

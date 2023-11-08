@@ -2,7 +2,7 @@ package custom_stack;
 
 import java.util.Arrays;
 
-public class MyArrayStack<T>{
+public class MyArrayStack<T> {
     private T[] elements;
     private int size;
     private final static int DEFAULT_CAPACITY = 10;
@@ -62,5 +62,11 @@ public class MyArrayStack<T>{
 
     private void ensureCapacity() {
         elements = Arrays.copyOf(elements, 2 * size + 1);
+    }
+
+    public void print() {
+        for (T element : elements) {
+            System.out.println(element);
+        }
     }
 }
